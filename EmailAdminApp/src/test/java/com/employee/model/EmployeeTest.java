@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.main.employee.model.Company;
+import com.main.employee.model.Employee;
+
 class EmployeeTest {
 
 	Employee employee = null;
@@ -15,12 +18,12 @@ class EmployeeTest {
 
 		String[] departmentNames = { "testOne", "testTwo", "testThree" };
 		company = new Company("testCompany", departmentNames);
-		employee = new Employee("firstNameTest", "lastNameTest", company, 0);
+		
 	}
 
 	@Test
 	public void generateEmailTest() {
-		//employee.setEmail(employee.generateEmail());
+		
 		assertEquals("lastNameTestfirstNameTest@testCompany.testOne.com", employee.getEmail());
 	}
 

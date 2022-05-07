@@ -1,4 +1,4 @@
-package com.employee.model;
+package com.main.employee.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import lombok.Data;
 
 @Data
-@Entity
 public class Company {
 
 	private String name;
@@ -16,19 +15,19 @@ public class Company {
 
 	public Company() {
 		super();
-		departments = new ArrayList();
+		departments = new ArrayList<String>();
 		
 	}
 	public Company(String companyName) {
 		super();
 		this.name = companyName;
-		departments = new ArrayList();
+		departments = new ArrayList<String>();
 	
 	}
 	public Company(String companyName, String[] companyDepartments) {
 		super();
 		this.name = companyName;
-		departments = new ArrayList();
+		departments = new ArrayList<String>();
 		
 		for(String department : companyDepartments) {
 			addDepartment(department);
@@ -52,6 +51,18 @@ public class Company {
 		this.departments.remove(departmentNumber);
 	}
 	
+	public boolean inList(String departmentName) {
+		for(String string : this.departments) {
+			if(departmentName.equals(string)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public String toString() {
+		return this.name;
+	}
 	
 	
 	
