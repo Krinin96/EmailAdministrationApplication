@@ -1,5 +1,6 @@
 package com.main.employee.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.main.company.model.Department;
 import com.main.employee.model.Employee;
 import com.main.employee.repo.EmployeeRepo;
 
@@ -20,7 +22,7 @@ public class EmployeeController {
 	
 	@GetMapping({"/employees","/"})
 	public ModelAndView showAllEmployees() {
-		ModelAndView mav = new ModelAndView("allEmployees");
+		ModelAndView mav = new ModelAndView("allEmployees");		
 		List<Employee> list = repo.findAll();
 		mav.addObject("employees", list);
 		return mav;		
@@ -40,7 +42,15 @@ public class EmployeeController {
 		return "redirect:employees";
 	}
 	
-	
+	@ModelAttribute("departments")
+	public List<Department> getDepartments(){
+		List<Department> list = new ArrayList<>();
+		list.add(new Department("IT"));
+		list.add(new Department("Accounting"));
+		list.add(new Department("Devlopment"));
+		list.add(new Department("Sales"));
+		return list;
+	}
 	
 	
 }
