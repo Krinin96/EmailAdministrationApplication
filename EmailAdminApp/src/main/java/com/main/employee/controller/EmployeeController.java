@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.main.company.model.Department;
+
 import com.main.employee.model.Employee;
 import com.main.employee.repo.EmployeeRepo;
 
@@ -38,19 +38,13 @@ public class EmployeeController {
 	
 	@PostMapping("/saveEmployee")
 	public String saveEmployee(@ModelAttribute Employee employee) {
+		employee.generateEmail();
 		repo.save(employee);
+		
 		return "redirect:employees";
 	}
 	
-	@ModelAttribute("departments")
-	public List<Department> getDepartments(){
-		List<Department> list = new ArrayList<>();
-		list.add(new Department("IT"));
-		list.add(new Department("Accounting"));
-		list.add(new Department("Devlopment"));
-		list.add(new Department("Sales"));
-		return list;
-	}
+	
 	
 	
 }
