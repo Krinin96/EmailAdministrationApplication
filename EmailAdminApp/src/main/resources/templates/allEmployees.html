@@ -10,19 +10,14 @@
 </head>
 
 <body>
-<script src="/javascript/custom.js"></script>
-<input
-id="myFunction"
-type="button"
-onclick = "myFunction()"/>
+
 
 	<div class="container">
 		<h1>Employee List</h1>
 		<hr />
 		<!-- adds a button that is a getRequest to add employee form-->
 		<a th:href="@{/addEmployeeForm}" class="btn btn-primary mb-2">Add
-			Employee</a> <a th:href="@{/addCompany}" class="btn btn-primary mb-2">Add/Update
-			Company</a>
+			Employee</a> 
 		<!-- makes the tables and the class makes its look pretty -->
 		<table class="table table-bordered table-striped">
 			<thead>
@@ -41,7 +36,7 @@ onclick = "myFunction()"/>
 					<td th:text=${employee.lastName}></td>
 					<td th:text=${employee.firstName}></td>
 					<td th:text=${employee.email}></td>
-					<td th:text=${employee.departmentNumber}></td>
+					<td th:text=${employee.department}></td>
 					<!-- <select>
 						<option th:each="department: ${departments}"
 							th:text="${department.departmentName}></option>
