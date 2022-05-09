@@ -12,6 +12,8 @@
 		<div class = "container">
 			<h2>Add Employee</h2>
 			<hr/>
+			<!-- adds a form that calls the saveEmployee method that will save it to the database with
+			 the first name and last name textfields-->
 			<form th:action="@{/saveEmployee}" th:object="${employee}" method ="POST">
 				<input type="text" th:field="*{firstName}" placeholder="first name" class="form-control col-4 mb-4" />
 				<input type="text" th:field="*{lastName}" placeholder="last name" class="form-control col-4 mb-4" />		
