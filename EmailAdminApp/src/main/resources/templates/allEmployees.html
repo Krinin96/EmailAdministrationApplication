@@ -1,44 +1,57 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-	<head>	
-		<title>Employee List</title>	
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
-		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
-		crossorigin="anonymous">
-			
-	</head>
-	
-	<body>
-		<div class="container">
-			<h1>Employee List</h1>
-			<hr/>
-			<!-- adds a link to add employee --> 
-			<a th:href="@{/addEmployeeForm}" class = "btn btn-primary mb-2">Add Employee</a>
-			<a th:href="@{/addCompany}" class = "btn btn-primary mb-2">Add/Update Company</a>
-			<!-- makes the tables and the class makes its look pretty -->
-			<table class="table table-bordered table-striped">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Last Name</th>
-						<th>First Name</th>						
-						<th>Email</th>
-						<th>Department</th>				
-					</tr>				
-				</thead>
-				<tbody>
-					<!-- uses thymleaf to go through each employee in the repo and sets up a tables -->
-					<tr th:each="employee: ${employees}">
-						<td th:text=${employee.id}></td>
-						<td th:text=${employee.lastName}></td>
-						<td th:text=${employee.firstName}></td>						
-						<td th:text=${employee.email}></td>
-						<td th:text=${employee.departmentNumber}></td>					
-					</tr>
-				</tbody>			
-			</table>
-		
-		</div>	
-	</body>
+<head>
+<title>Employee List</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
 
+</head>
+
+<body>
+<script src="/javascript/custom.js"></script>
+<input
+id="myFunction"
+type="button"
+onclick = "myFunction()"/>
+
+	<div class="container">
+		<h1>Employee List</h1>
+		<hr />
+		<!-- adds a button that is a getRequest to add employee form-->
+		<a th:href="@{/addEmployeeForm}" class="btn btn-primary mb-2">Add
+			Employee</a> <a th:href="@{/addCompany}" class="btn btn-primary mb-2">Add/Update
+			Company</a>
+		<!-- makes the tables and the class makes its look pretty -->
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Last Name</th>
+					<th>First Name</th>
+					<th>Email</th>
+					<th>Department</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- uses thymleaf to go through each employee in the repo and sets up a tables -->
+				<tr th:each="employee: ${employees}">
+					<td th:text=${employee.id}></td>
+					<td th:text=${employee.lastName}></td>
+					<td th:text=${employee.firstName}></td>
+					<td th:text=${employee.email}></td>
+					<td th:text=${employee.departmentNumber}></td>
+					<!-- <select>
+						<option th:each="department: ${departments}"
+							th:text="${department.departmentName}></option>
+					</select>
+					 -->
+				</tr>
+
+			</tbody>
+
+		</table>
+	</div>	
+</body>
 </html>
