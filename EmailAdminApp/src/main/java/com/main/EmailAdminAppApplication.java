@@ -3,7 +3,7 @@ package com.main;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.main.company.model.Company;
+
 import com.main.employee.model.Employee;
 
 @SpringBootApplication
