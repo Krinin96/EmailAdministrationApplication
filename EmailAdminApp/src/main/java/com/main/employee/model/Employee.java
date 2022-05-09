@@ -16,31 +16,30 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	private String lastName;
 	private String firstName;
-	private int departmentNumber;
-	private String email;	
+	private String department;
+	private String email;
 
-	public Employee(String firstName, String lastName,  int departmentNumber) {
+	public Employee(String firstName, String lastName, String departmentName) {
 		super();
 
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.departmentNumber = departmentNumber;		
+		this.department = departmentName;
 	}
 
 	public Employee(String firstName, String lastName) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		
+
 	}
 
-//	public String generateEmail() {
-//		return this.lastName + this.firstName + "@" + this.company.getName() + "."
-//				+ this.company.getDepartments().get(this.departmentNumber) + ".com";
-//	}
+	public void generateEmail() {
+		email = lastName + firstName + "@" + department + ".com";
+	}
 //
 //	public String toString() {
 //		return this.firstName + " " + this.lastName + ", " + this.company.getName() + ", department "
